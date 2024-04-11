@@ -12,6 +12,7 @@
         "payments_url": "https://dm.lanta.me/app_static/payments/template.html",
         "city_cams": false,
         "support_phone": "+7(4752)429999",
+        "phonePattern": "7 (###) ###-##-##",
         "chat": false,
         "chat_url_disabled": "<!-- your chat url or remove it and use talkMe by default with options below--!>",
         "talk_me_id_disabled": "<!-- put your talkMe chat id here --!>",
@@ -31,7 +32,7 @@
     "redis": {
         "host": "172.28.0.4",
         "port": 6379,
-        "password": "redis_passwd",
+        "password": "qqq",
         "cache_ttl": 3600,
         "max_allowed_tokens": 15,
         "token_idle_ttl": 3600
