@@ -18,3 +18,5 @@ docker/kamailio/kamailio-local.cfg
 /rbt-asterisk
 /rbt-asterisk_
 
+#push service accounts
+/docker/push/assets

@@ -1,13 +1,13 @@
 {
     "api": {
-        "frontend": "https://preyai.ddns.ne/frontend",
+        "frontend": "https://preyai.ddns.net/frontend",
         "asterisk": "http://127.0.0.1/asterisk",
         "internal": "http://127.0.0.1/internal",
-        "mobile": "https://preyai.ddns.ne/mobile"
+        "mobile": "https://preyai.ddns.net/mobile"
     },
 
     "mobile": {
-        "web_server_base_path": "https://preyai.ddns.ne/static",
+        "web_server_base_path": "https://preyai.ddns.net/static",
         "payments": true,
         "payments_url": "https://dm.lanta.me/app_static/payments/template.html",
         "city_cams": false,
@@ -37,7 +37,6 @@
         "max_allowed_tokens": 15,
         "token_idle_ttl": 3600
     },
-
     "clickhouse": {
         "host": "172.28.0.7",
         "port": 8123,
@@ -65,8 +64,7 @@
 
         "geocoder": {
             "backend": "dadata",
-            "token": "dadata-token",
-            "location is optional, can limit geocoder, see dadata api": "!!! comment, remove this line !!!"
+            "token": "11ad344d1bbbe7c2298d646961449c68f368e9f7"
         },
 
         "files": {
@@ -92,7 +90,9 @@
         },
 
         "isdn": {
-            "backend": "lanta",
+            "backend": "push_service",
+            "host": "172.28.0.10",
+            "port":3050,
             "flash_call_secret": "request_your_flash_call_secret_in_rbt_teem",
             "sms_secret": "request_your_sms_secret_in_rbt_teem",
             "common_secret": "request_your_common_secret_in_rbt_teem",
@@ -135,20 +135,12 @@
             "backend": "internal",
             "servers": [
                 {
-                    "title": "Local server | nimble",
-                    "type": "nimble",
-                    "url": "https://video.server.hostname:8443",
-                    "management_ip": "127.0.0.1",
-                    "management_port": "8086",
-                    "management_token": "<!-- management token -->"
-                },
-                {
-                    "title": "Local server | flussonic",
+                    "title": "First server",
                     "type": "flussonic",
-                    "url": "https:\/\/flussonic_example_server.me",
-                    "token": "fl_token_example"
+                    "url": "https://rbt-demo.lanta.me:8443",
+                    "token": "phei9quohmoochoth5es3eo9Koh5ua9i",
+		            "hlsMode": "mpegts"
                 }
-
             ]
         },
 
@@ -163,10 +155,10 @@
             "backend": "internal",
             "servers": [
                 {
-                    "title": "First server | preyai.ddns.ne",
+                    "title": "First server | preyai.ddns.net",
                     "type": "asterisk",
                     "trunk": "first",
-                    "ip": "preyai.ddns.ne",
+                    "ip": "preyai.ddns.net",
                     "sip_tcp_port": 5060,
                     "sip_udp_port": 5060,
                     "incoming_title": "Входящий вызов",
@@ -200,29 +192,29 @@
     "email": {
         "server": "127.0.0.1",
         "port": 587,
-        "username": "noreply@preyai.ddns.ne",
+        "username": "noreply@preyai.ddns.net",
         "password": "qwerty",
         "from": "RBT"
     },
 
     "syslog_servers": {
         "beward": [
-            "syslog.udp:preyai.ddns.ne:45450"
+            "syslog.udp:preyai.ddns.net:45450"
         ],
         "beward_ds": [
-            "syslog.udp:preyai.ddns.ne:45451"
+            "syslog.udp:preyai.ddns.net:45451"
         ],
         "qtech": [
-            "syslog.udp:preyai.ddns.ne:45452"
+            "syslog.udp:preyai.ddns.net:45452"
         ],
         "is": [
-            "syslog.udp:preyai.ddns.ne:45453"
+            "syslog.udp:preyai.ddns.net:45453"
         ],
         "hikvision": [
-            "syslog.udp:preyai.ddns.ne:45454"
+            "syslog.udp:preyai.ddns.net:45454"
         ],
         "akuvox": [
-            "syslog.udp:preyai.ddns.ne:45455"
+            "syslog.udp:preyai.ddns.net:45455"
         ]
     },
 

@@ -97,6 +97,7 @@ services:
       dockerfile: docker/asterisk/Dockerfile
     volumes:
       - ./SmartYard-Server/install/asterisk:/etc/asterisk
+      - ./docker/nginx/conf.d/certs:/etc/asterisk/certs
     depends_on:
       - nginx
     network_mode: host
@@ -189,6 +190,22 @@ services:
     volumes:
       - ./SmartYard-Server/install/rtpengine/rtpengine.conf:/etc/rtpengine/rtpengine.conf
     command: rtpengine --config-file=/etc/rtpengine/rtpengine.conf --foreground
+  
+  push_service:
+    build:
+      context: .
+      dockerfile: ./docker/push/Dockerfile
+    container_name: rbt_push
+    ports:
+      - "8080:8080"  # Подставьте порт, если ваш сервис должен быть доступен извне
+    volumes:
+      - ./docker/push/assets:/usr/src/app/assets  # Директория с ключами Firebase и другими активами
+    environment:
+      - APP_PORT=${RBT_PUSH_PORT}
+      - APP_HOST=${RBT_PUSH_NETWORK_ADDRESS}
+    networks:
+      rbt-app-network:
+        ipv4_address: "${RBT_PUSH_NETWORK_ADDRESS}"  # Убедитесь, что адрес уникален и задан в переменных окружения
 
 volumes:
   db_postgres:

@@ -34,7 +34,9 @@ RUN chmod +x /usr/local/bin/install-php-extensions && \
     pgsql \
     yaml
 
-
+RUN docker-php-ext-configure intl && \
+    docker-php-ext-install intl
+    
 # Install composer
 ENV COMPOSER_ALLOW_SUPERUSER=1
 RUN curl -sS https://getcomposer.org/installer | php -- \

@@ -13,7 +13,8 @@
         "permissions",
         "providers",
         "users",
-        "tt"
+        "tt",
+        "darkmode"
     ],
     "regExp": {
         "phone": "^(7 \\(\\d{3}\\) \\d{3}-\\d{2}-\\d{2}|7\\d{10})$",
@@ -21,11 +22,13 @@
     },
     "defaultRoute": "#about",
     "logo": "rbt",
-    "ws": "wss://172.28.0.1/wss",
-    "ice": [
-        {
-            "urls": [ "stun:stun.l.google.com:19302" ]
-        }
-    ],
-    "sipDomain": "172.28.0.1:5060"
+    "asterisk": {
+        "ws": "wss://172.28.0.1/wss",
+        "ice": [
+            {
+                "urls": [ "stun:stun.l.google.com:19302" ]
+            }
+        ],
+        "sipDomain": "172.28.0.1:5060"
+    }
 }
