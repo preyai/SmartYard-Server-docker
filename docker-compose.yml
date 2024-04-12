@@ -1,4 +1,4 @@
-version: '3.8'
+version: '3.9'
 
 services:
   nginx:
@@ -158,29 +158,29 @@ services:
       rbt-app-network:
         ipv4_address: "${RBT_MOSQUITTO_NETWORK_ADDRESS}"
 
-  kamailio:
-    container_name: rbt_kamailio
-    build:
-      context: .
-      dockerfile: docker/kamailio/Dockerfile
-    network_mode: host
-    volumes:
-      - ./SmartYard-Server/install/kamailio/:/etc/kamailio
-    depends_on:
-      - app
-      - rtpengine
+  # kamailio:
+  #   container_name: rbt_kamailio
+  #   build:
+  #     context: .
+  #     dockerfile: docker/kamailio/Dockerfile
+  #   network_mode: host
+  #   volumes:
+  #     - ./SmartYard-Server/install/kamailio/:/etc/kamailio
+  #   depends_on:
+  #     - app
+  #     - rtpengine
 
-  kamailio_dev:
-    container_name: rbt_kamailio_dev
-    build:
-      context: .
-      dockerfile: docker/kamailio/Dockerfile_dev
-    network_mode: host
-    volumes:
-      - ./docker/kamailio/dev/v4/:/etc/kamailio
-    depends_on:
-      - app
-      - rtpengine
+  # kamailio_dev:
+  #   container_name: rbt_kamailio_dev
+  #   build:
+  #     context: .
+  #     dockerfile: docker/kamailio/Dockerfile_dev
+  #   network_mode: host
+  #   volumes:
+  #     - ./docker/kamailio/dev/v4/:/etc/kamailio
+  #   depends_on:
+  #     - app
+  #     - rtpengine
 
   rtpengine:
     container_name: rbt_rtpengine

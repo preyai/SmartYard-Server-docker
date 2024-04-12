@@ -31,7 +31,7 @@ sys_copy_configs: ## Copy SmartYard-Server example configs
 	# create SmartYard-Server server config
 	cp docker/example_conf/SmartYard-Server_server_config.json SmartYard-Server/server/config/config.json
 	# create SmartYard-Server syslog
-	cp docker/example_conf/SmartYard-Server_syslog_config.json SmartYard-Server/server/syslog/config.json
+	cp docker/example_conf/SmartYard-Server_syslog_config.json SmartYard-Server/server/services/syslog/config.json
 	# copy example asterisk config for running
 	cp -R docker/asterisk/conf/* SmartYard-Server/install/asterisk/
 	# cope default environments
@@ -40,6 +40,8 @@ sys_copy_configs: ## Copy SmartYard-Server example configs
 sys_init_config: ##  SmartYard-Server initial config
 	# init db
 	docker exec -it rbt_app php server/cli.php --init-db
+	docker exec -it rbt_app php server/cli.php --admin-password=0507
+	docker exec -it rbt_app php server/cli.php --reindex
 	# Init clichouse
 	docker exec -it rbt_app php server/cli.php --init-clickhouse-db
 	# Init crontab

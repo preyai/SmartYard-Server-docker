@@ -32,8 +32,7 @@ RUN chmod +x /usr/local/bin/install-php-extensions && \
     pdo \
     pdo_pgsql \
     pgsql \
-    yaml \
-    grpc
+    yaml
 
 
 # Install composer
